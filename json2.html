@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <table border="1" id="mytable">
+      <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>dob</th>
+      </tr>
+    </table>
+    <script>
+      let person = [
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 9 1996" },
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 10 1996" },
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 11 1996" },
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 12 1996" },
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 13 1996" },
+        { firstname: "rishikesh", lastname: "kumar", dob: "July 14 1996" },
+      ];
+      for (let i = 0; i < person.length; i++) {
+        let data = document.getElementById("mytable");
+        let row = document.createElement("tr");
+        let firstdata = document.createElement("td");
+        let seconddata = document.createElement("td");
+        let thirddata = document.createElement("td");
+        firstdata.innerText = person[i].firstname;
+        seconddata.innerText = person[i].lastname;
+        thirddata.innerText = person[i].dob;
+        row.appendChild(firstdata);
+        row.appendChild(seconddata);
+        row.appendChild(thirddata);
+        data.appendChild(row);
+      }
+    </script>
+  </body>
+</html>
