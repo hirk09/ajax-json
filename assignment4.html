@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <label>Name: </label> <input type="text" id="myName" />
+    <label>Email: </label> <input type="text" id="myEmail" /><br />
+    <label>Massege: </label> <input type="text" id="myMassege" />
+    <label>Date: </label> <input type="date" id="myDate" />
+    <button onclick="newElement()">submit</button>
+    <table border="1" id="tabl">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Massege</th>
+        <th>Date</th>
+      </tr>
+    </table>
+    <script>
+      function newElement() {
+        if (
+          document.getElementById("myName").value === "" ||
+          document.getElementById("myEmail").value === "" ||
+          document.getElementById("myMassege").value === "" ||
+          document.getElementById("myDate").value === ""
+        ) {
+          alert("You must write something!");
+        } else {
+          let person = {};
+          var details = [];
+          var elements = document.getElementsByTagName("input");
+          for (var i = 0; i < elements.length; i++) {
+            person[elements[i].id] = elements[i].value;
+          }
+          details.push(person);
+          for (i = 0; i < details.length; i++) {
+            let person1 = document.getElementById("tabl");
+            let row = document.createElement("tr");
+            let data = document.createElement("td");
+            let data_s = document.createElement("td");
+            let data_t = document.createElement("td");
+            let data_d = document.createElement("td");
+            data.innerText = details[i].myName;
+            data_s.innerText = details[i].myEmail;
+            data_t.innerText = details[i].myMassege;
+            data_d.innerText = details[i].myDate;
+            row.appendChild(data);
+            row.appendChild(data_s);
+            row.appendChild(data_t);
+            row.appendChild(data_d);
+            person1.appendChild(row);
+          }
+          document.getElementById("myName").value = "";
+          document.getElementById("myEmail").value = "";
+          document.getElementById("myMassege").value = "";
+          document.getElementById("myDate").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
